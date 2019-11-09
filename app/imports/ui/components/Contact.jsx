@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Contact extends React.Component {
@@ -14,11 +14,14 @@ class Contact extends React.Component {
                 size='mini'
                 src={this.props.contact.image}
             />
-            <Card.Header>{this.props.contact.firstname} {this.props.contact.lastname}</Card.Header>
+            <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
             <Card.Meta>{this.props.contact.address}</Card.Meta>
             <Card.Description>
               {this.props.contact.description}
             </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
           </Card.Content>
         </Card>
     );
