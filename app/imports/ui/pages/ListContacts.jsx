@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { Contacts } from '../../api/contact/Contacts';
 import { Notes } from '../../api/note/Notes';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListContacts extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -31,7 +30,6 @@ class ListContacts extends React.Component {
   }
 }
 
-/** Require an array of Stuff documents in the props. */
 ListContacts.propTypes = {
   contacts: PropTypes.array.isRequired,
   notes: PropTypes.array.isRequired,
@@ -40,7 +38,6 @@ ListContacts.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Contacts');
   const subscription2 = Meteor.subscribe('Notes');
   return {
